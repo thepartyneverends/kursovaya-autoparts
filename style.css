@@ -1,0 +1,507 @@
+:root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #dc3545;
+            --light-bg: #f8f9fa;
+            --dark-bg: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .category-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .promo-card {
+            transition: transform 0.3s;
+            border: 2px solid #ffc107;
+            height: 100%;
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+        }
+        
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.2);
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: contain;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .promo-img {
+            height: 180px;
+            object-fit: contain;
+            padding: 10px;
+            background-color: #fff;
+        }
+        
+        .badge-discount {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+        
+        .badge-promo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            background-color: #dc3545;
+            font-size: 0.8rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-danger {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+            font-weight: 600;
+        }
+        
+        .features-section {
+            background-color: var(--light-bg);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .car-brand-img {
+            height: 50px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .car-brand-img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        
+        .discount {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .promo-price {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .promo-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .promo-timer {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .promo-title {
+            color: #dc3545;
+            border-left: 4px solid #dc3545;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+    /* Стили для карусели товаров */
+    #productsCarousel {
+        padding: 20px 0;
+        overflow: visible; /* Важно для видимости выходящих элементов */
+    }
+    
+    .carousel-control-custom {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(13, 110, 253, 0.8);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.8;
+        transition: all 0.3s;
+        z-index: 10; /* Чтобы стрелки были над карточками */
+    }
+    
+    .carousel-control-custom:hover {
+        background-color: rgba(13, 110, 253, 1);
+        opacity: 1;
+    }
+    
+    .carousel-control-prev.carousel-control-custom {
+        left: -25px;
+    }
+    
+    .carousel-control-next.carousel-control-custom {
+        right: -25px;
+    }
+    
+    .carousel-indicators {
+        bottom: -40px;
+        z-index: 5; /* Чтобы индикаторы были под карточками */
+    }
+    
+    .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-color: #0d6efd;
+        opacity: 0.5;
+        transition: all 0.3s;
+    }
+    
+    .carousel-indicators button.active {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    
+    /* ФИКС: Исправленная анимация карточек */
+    .carousel-item {
+        transition: transform 0.6s ease-in-out;
+        padding: 15px 0; /* Добавляем отступы вокруг слайда */
+    }
+    
+    .product-card {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 0.95;
+        position: relative; /* Для правильного позиционирования */
+        border: 1px solid #dee2e6; /* Четкая граница */
+        border-radius: 10px; /* Скругленные углы */
+        overflow: hidden; /* Скрываем содержимое за границами */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Легкая тень */
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+    
+    /* Исправленный эффект наведения */
+    .product-card:hover {
+        transform: translateY(-8px) scale(1.02); /* Меньший подъем + увеличение */
+        opacity: 1;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
+        z-index: 100; /* Поднимаем над другими элементами */
+        border-color: #0d6efd; /* Подсветка границы */
+    }
+    
+    /* Чтобы все карточки в ряду были на одном уровне */
+    .row.g-4 {
+        align-items: stretch; /* Растягиваем карточки по высоте */
+    }
+    
+    /* Фикс для отступов между карточками */
+    .col-md-6.col-lg-3 {
+        padding: 5px; /* Отступы между колонками */
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .carousel-control-custom {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .carousel-control-prev.carousel-control-custom {
+            left: 10px;
+        }
+        
+        .carousel-control-next.carousel-control-custom {
+            right: 10px;
+        }
+        
+        .product-card {
+            margin-bottom: 15px;
+        }
+        
+        .product-img {
+            height: 180px;
+        }
+        
+        /* Меньший эффект на мобильных */
+        .product-card:hover {
+            transform: translateY(-4px) scale(1.01);
+        }
+    }
+    
+    /* Анимация для элементов внутри карточки */
+    .product-card .price {
+        transition: color 0.3s, transform 0.3s;
+    }
+    
+    .product-card:hover .price {
+        color: #dc3545;
+    }
+    
+    .product-card .btn-primary {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .product-card:hover .btn-primary {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Эффект пульсации для кнопки при наведении */
+    .product-card .btn-primary::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .product-card:hover .btn-primary::after {
+        animation: ripple 1s ease-out;
+    }
+    
+    /* Индикатор загрузки */
+    .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+    }
+    
+    /* Эффект для бейджей */
+    .badge-discount {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        transition: all 0.3s;
+    }
+    
+    
+    /* Эффект для изображения товара */
+    .product-img {
+        transition: transform 0.5s ease;
+        background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    }
+    
+    .product-card:hover .product-img {
+        transform: scale(1.05);
+    }
+    
+    /* Затемнение фона при наведении на карточку */
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, rgba(13, 110, 253, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        border-radius: 10px;
+        z-index: 1;
+    }
+    
+    .product-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Обеспечиваем, чтобы содержимое было выше фона */
+    .card-body {
+        position: relative;
+        z-index: 2;
+        background-color: white; /* Фон для содержимого */
+    }
+    
+    /* Фикс для карусели - чтобы карточки не выходили за границы */
+    .carousel-inner {
+        overflow: visible; /* Позволяем карточкам выходить за пределы */
+        padding: 10px 0; /* Дополнительные отступы */
+    }
+    
+    /* Анимация появления карточек при загрузке */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .product-card {
+        animation: fadeInUp 0.5s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    /* Задержка анимации для каждой карточки */
+    .col-md-6.col-lg-3:nth-child(1) .product-card { animation-delay: 0.1s; }
+    .col-md-6.col-lg-3:nth-child(2) .product-card { animation-delay: 0.2s; }
+    .col-md-6.col-lg-3:nth-child(3) .product-card { animation-delay: 0.3s; }
+    .col-md-6.col-lg-3:nth-child(4) .product-card { animation-delay: 0.4s; }
+    
+    /* Фикс для стрелок навигации - поднимаем их */
+    .carousel-control-prev,
+    .carousel-control-next {
+        z-index: 1000;
+    }
+    
+    /* Улучшаем видимость границ карточек */
+    .product-card {
+        border: 2px solid transparent; /* Прозрачная граница по умолчанию */
+        background-clip: padding-box; /* Чтобы градиент не выходил за границы */
+    }
+    
+    .product-card:hover {
+        border: 2px solid rgba(13, 110, 253, 0.2);
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(220, 53, 69, 0.1)) border-box;
+    }
+
+
+    .category-card {
+        height: 220px;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    
+    .category-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    }
+    
+    .category-info {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: white;
+    }
+    
+    .category-info h5 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    
+    .category-info p {
+        margin: 5px 0 10px;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .category-info a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .category-info a:hover {
+        text-decoration: underline;
+    }

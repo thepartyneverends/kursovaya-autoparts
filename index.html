@@ -8,152 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --accent-color: #dc3545;
-            --light-bg: #f8f9fa;
-            --dark-bg: #212529;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color) !important;
-        }
-        
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-        }
-        
-        .category-card {
-            transition: transform 0.3s;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 100%;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .product-card {
-            transition: transform 0.3s;
-            border: 1px solid #eaeaea;
-            height: 100%;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-img {
-            height: 200px;
-            object-fit: contain;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        
-        .badge-discount {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-danger {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-        
-        .features-section {
-            background-color: var(--light-bg);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        footer {
-            background-color: var(--dark-bg);
-            color: white;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: var(--primary-color);
-        }
-        
-        .car-brand-img {
-            height: 50px;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
-        }
-        
-        .car-brand-img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        
-        .cart-icon {
-            position: relative;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .price {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .old-price {
-            text-decoration: line-through;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
-        
-        .discount {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/products-carousel.js" defer></script>
 </head>
 <body>
     <!-- Навигация -->
@@ -173,54 +30,754 @@
                         <a class="nav-link active" href="#home">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#categories">Категории</a>
+                        <a class="nav-link" href="#promotions">Текущие акции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="all-parts.html">Категории запчастей</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#products">Популярные товары</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#brands">Бренды</a>
+                        <a class="nav-link" href="#reviews">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Сотрудники</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacts">Контакты</a>
                     </li>
                 </ul>
-                
-                <div class="d-flex align-items-center">
-                    <div class="cart-icon me-4">
-                        <a href="#" class="text-dark position-relative">
-                            <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
-                            <span class="cart-count">3</span>
-                        </a>
-                    </div>
-                    <form class="d-flex me-3">
-                        <input class="form-control me-2" type="search" placeholder="Поиск запчастей...">
-                        <button class="btn btn-outline-primary" type="submit">Найти</button>
-                    </form>
-                    <a href="#" class="btn btn-primary">Войти</a>
-                </div>
             </div>
         </div>
     </nav>
 
     <!-- Герой-секция -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Запчасти для вашего автомобиля</h1>
-                    <p class="lead mb-4">Более 50,000 запчастей в наличии. Оригинальные детали и качественные аналоги с гарантией от производителя. Доставка по всей стране.</p>
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="#categories" class="btn btn-danger btn-lg">Каталог товаров</a>
-                        <a href="#products" class="btn btn-outline-light btn-lg">Акции</a>
+<section id="home" class="hero-section">
+    <!-- Фоновое видео/изображение -->
+    <div class="hero-background">
+        <div class="hero-bg-image">
+            <img src="img" alt="">
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row align-items-center min-vh-80 py-5">
+            <div class="col-lg-7 col-xl-6">
+                <!-- Бейдж -->
+                <div class="hero-badge mb-4">
+                    <span class="badge bg-danger px-3 py-2 fs-6 fw-normal">
+                        <i class="bi bi-star-fill me-2"></i>Лидер рынка с 2025 года
+                    </span>
+                </div>
+                
+                <!-- Заголовок с акцентом -->
+                <h1 class="hero-title mb-4">
+                    <span class="d-block fw-light">Оригинальные запчасти</span>
+                    <span class="d-block fw-bold gradient-text">для вашего автомобиля</span>
+                </h1>
+                
+                <!-- Описание -->
+                <div class="hero-description mb-5">
+                    <p class="lead fs-4 mb-3">Более <span class="fw-bold text-warning">50,000</span> запчастей в наличии</p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon-circle me-3">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span>Гарантия до 3 лет</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon-circle me-3">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span>Доставка 1-2 дня</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon-circle me-3">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span>Оригинал и аналоги</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="feature-icon-circle me-3">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span>Подбор по VIN</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block">
-                    <img src="https://avatars.mds.yandex.net/get-mpic/4577446/2a000001918a65058d5d4f4e136c5f1c0e1a/orig" alt="" width="600px">
+            </div>
+            
+            <!-- Правый блок с изображением -->
+            <div class="col-lg-5 col-xl-6 d-none d-lg-block">
+                <div class="hero-image-container position-relative">
+                    <!-- Основное изображение -->
+                    <div class="hero-main-image">
+                        <img src="img/hero-section-photo/pngtree-various-metal-parts-of-a-motor-vehicle-picture-image_3475618.jpg" 
+                             alt="Автозапчасти" 
+                             class="img-fluid rounded-4 shadow-lg">
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+    /* Базовые стили */
+    .hero-section {
+        position: relative;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .min-vh-80 {
+        min-height: 80vh;
+    }
+    
+    /* Фон */
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    
+    .hero-bg-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(13, 110, 253, 0.85) 0%, rgba(33, 37, 41, 0.9) 100%);
+        z-index: -1;
+    }
+    
+    /* Заголовок */
+    .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(90deg, #ffd700, #ff8c00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Иконки преимуществ */
+    .feature-icon-circle {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4cd964;
+    }
+    
+    /* Контейнер изображения */
+    .hero-image-container {
+        position: relative;
+        height: 100%;
+    }
+    
+    .hero-main-image {
+        position: relative;
+        z-index: 1;
+        transform: perspective(1000px) rotateY(-10deg);
+        transition: transform 0.5s;
+    }
+    
+    .hero-section:hover .hero-main-image {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    
+    /* Плавающие карточки */
+    .floating-card {
+        position: absolute;
+        z-index: 2;
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .floating-card-1 {
+        top: 20%;
+        right: -20px;
+        animation-delay: 0s;
+    }
+    
+    .floating-card-2 {
+        bottom: 30%;
+        left: -20px;
+        animation-delay: 0.5s;
+    }
+    
+    .floating-card-3 {
+        top: 60%;
+        right: 10%;
+        animation-delay: 1s;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    /* Карточка поиска */
+    .hero-search-card {
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Кнопки */
+    .btn-danger {
+        background: linear-gradient(135deg, #dc3545, #ff6b6b);
+        border: none;
+        transition: all 0.3s;
+    }
+    
+    .btn-danger:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+    }
+    
+    .btn-outline-light {
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s;
+    }
+    
+    .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+    }
+    
+    /* Прокрутка вниз */
+    .hero-scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .scroll-link {
+        color: white;
+        font-size: 2rem;
+        opacity: 0.7;
+        transition: all 0.3s;
+        animation: bounce 2s infinite;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .scroll-link:hover {
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 992px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .floating-card {
+            display: none;
+        }
+        
+        .hero-main-image {
+            transform: none;
+        }
+        
+        .hero-actions .btn-lg {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .lead.fs-4 {
+            font-size: 1.1rem !important;
+        }
+        
+        .hero-actions {
+            text-align: center;
+        }
+        
+        .hero-actions .d-flex {
+            justify-content: center;
+        }
+    }
+</style>
+
+    <section id="promotions" class="py-5 promo-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="fw-bold promo-title text-center">Текущие акции</h2>
+                <p class="text-center text-muted">Специальные предложения с ограниченным сроком действия</p>
+            </div>
+        </div>
+        
+        <!-- Карусель акций -->
+        <div id="promotionsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Индикаторы -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="4"></button>
+            </div>
+            
+            <!-- Слайды -->
+            <div class="carousel-inner">
+                <!-- Акция 1 -->
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="promo-card card h-100">
+                                <div class="row g-0 h-100">
+                                    <div class="col-md-5 position-relative">
+                                        <span class="badge badge-promo">Акция недели</span>
+                                        <img src="img/akcii/michelin.jpg" class="img-fluid rounded-start h-100 promo-img" alt="Комплект шин">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body d-flex flex-column h-100">
+                                            <div class="promo-timer">
+                                                <i class="bi bi-clock me-2"></i>До 30.05.2026
+                                            </div>
+                                            <h4 class="card-title">Комплект летних шин Michelin</h4>
+                                            <p class="card-text">При покупке комплекта из 4 шин Michelin Energy Saver+ вы получаете скидку 20% и бесплатную шиномонтаж в подарок.</p>
+                                            <ul class="list-unstyled text-muted">
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Размеры: 205/55 R16, 215/55 R17</li>
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Бесплатный шиномонтаж</li>
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Балансировка в подарок</li>
+                                            </ul>
+                                            <div class="mt-auto">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <span class="promo-price">32 500 ₽</span>
+                                                        <span class="old-price ms-2">40 000 ₽</span>
+                                                    </div>
+                                                    <a href="all-parts.html">
+                                                        <button class="btn btn-danger">Купить</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Акция 2 -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="promo-card card h-100">
+                                <div class="row g-0 h-100">
+                                    <div class="col-md-5 position-relative">
+                                        <span class="badge badge-promo">Выгодный набор</span>
+                                        <img src="img/akcii/4-FILTRY-6L-OLEJU-CASTROL-0W30-V60-I-V70-III-S80-II-XC60-I-2-0-2-4-D3-D4-D5.jpg" class="img-fluid rounded-start h-100 promo-img" alt="Масло и фильтры">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body d-flex flex-column h-100">
+                                            <div class="promo-timer">
+                                                <i class="bi bi-clock me-2"></i>До 01.03.2026
+                                            </div>
+                                            <h4 class="card-title">Комплексное ТО со скидкой 25%</h4>
+                                            <p class="card-text">Набор для полного технического обслуживания: моторное масло Castrol, масляный фильтр, воздушный фильтр и салонный фильтр.</p>
+                                            <ul class="list-unstyled text-muted">
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Масло Castrol EDGE 0W-30 (4л)</li>
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>3 фильтра: масляный, воздушный, салонный</li>
+                                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Бесплатная доставка</li>
+                                            </ul>
+                                            <div class="mt-auto">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <span class="promo-price">5 250 ₽</span>
+                                                        <span class="old-price ms-2">7 000 ₽</span>
+                                                    </div>
+                                                    <a href="all-parts.html">
+                                                        <button class="btn btn-danger">Купить</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Акция 3 -->
+                                        <div class="carousel-item">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="promo-card card h-100">
+                <div class="row g-0 h-100">
+                    <div class="col-md-5 position-relative">
+                        <span class="badge badge-promo" style="background: #198754;">Хит сезона</span>
+                        <img src="img/akcii/varta.jpg" class="img-fluid rounded-start h-100 promo-img" alt="Аккумулятор">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body d-flex flex-column h-100">
+                            <div class="promo-timer">
+                                <i class="bi bi-clock me-2"></i>Новогодняя акция до 30.01.2026
+                            </div>
+                            <h4 class="card-title">Аккумуляторы Varta со скидкой 30% + установка</h4>
+                            <p class="card-text">Подготовьте автомобиль к зиме с надежным аккумулятором от Varta. Специальное предложение на все модели аккумуляторов Blue Dynamic.</p>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Аккумуляторы емкостью 55-100 Ач</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Бесплатная профессиональная установка</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Гарантия 3 года</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="promo-price">от 4 900 ₽</span>
+                                        <span class="old-price ms-2">от 7 000 ₽</span>
+                                    </div>
+                                    <a href="all-parts.html">
+                                        <button class="btn btn-danger">Купить</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Акция 4 -->
+<div class="carousel-item">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="promo-card card h-100">
+                <div class="row g-0 h-100">
+                    <div class="col-md-5 position-relative">
+                        <span class="badge badge-promo" style="background: #6610f2;">Комплект</span>
+                        <img src="img/akcii/akcii-brakes.jpg" class="img-fluid rounded-start h-100 promo-img" alt="Тормозная система">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body d-flex flex-column h-100">
+                            <div class="promo-timer">
+                                <i class="bi bi-clock me-2"></i>До 25.02.2026
+                            </div>
+                            <h4 class="card-title">Комплект тормозов Brembo -35%</h4>
+                            <p class="card-text">Полный комплект тормозной системы премиум-класса. В комплекте: передние и задние колодки, тормозные диски, тормозная жидкость.</p>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Тормозные колодки Brembo (передние + задние)</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Тормозные диски (передние + задние)</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Тормозная жидкость DOT 5.1 в подарок</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="promo-price">24 800 ₽</span>
+                                        <span class="old-price ms-2">38 200 ₽</span>
+                                    </div>
+                                    <a href="all-parts.html">
+                                        <button class="btn btn-danger">Купить</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Акция 5 -->
+<div class="carousel-item">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="promo-card card h-100">
+                <div class="row g-0 h-100">
+                    <div class="col-md-5 position-relative">
+                        <span class="badge badge-promo" style="background: #fd7e14;">Сезонная</span>
+                        <img src="img/akcii/antifreeze.jpg" class="img-fluid rounded-start h-100 promo-img" alt="Система охлаждения">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body d-flex flex-column h-100">
+                            <div class="promo-timer">
+                                <i class="bi bi-clock me-2"></i>До 10.06.2026
+                            </div>
+                            <h4 class="card-title">Скидка 40% на систему охлаждения</h4>
+                            <p class="card-text">Полный комплект системы охлаждения. Антифриз G12++, радиатор, помпа, термостат и все необходимые патрубки.</p>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Радиатор охлаждения Nissens + Антифриз G12++ (5литров)</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Водяная помпа Gates с подшипником</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Комплект патрубков и термостат</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="promo-price">18 500 ₽</span>
+                                        <span class="old-price ms-2">30 800 ₽</span>
+                                    </div>
+                                    <a href="all-parts.html">
+                                        <button class="btn btn-danger">Купить</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+            
+            <!-- Стрелки управления -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для карусели акций */
+    .promo-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .promo-title {
+        color: #dc3545;
+        border-left: 4px solid #dc3545;
+        padding-left: 15px;
+    }
+    
+    .promo-card {
+        border: 2px solid #ffc107;
+        border-radius: 15px;
+        background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+        box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+        transition: transform 0.3s;
+        height: 400px;
+    }
+    
+    .promo-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3);
+    }
+    
+    .promo-img {
+        height: 100%;
+        object-fit: cover;
+        padding: 20px;
+        background-color: #fff;
+    }
+    
+    .badge-promo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #dc3545;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        z-index: 10;
+    }
+    
+    .promo-timer {
+        background-color: #dc3545;
+        color: white;
+        border-radius: 8px;
+        padding: 8px 15px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .promo-price {
+        color: #dc3545;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+    
+    .old-price {
+        text-decoration: line-through;
+        color: #6c757d;
+        font-size: 1.1rem;
+    }
+    
+    /* Стили для карусели */
+    #promotionsCarousel {
+        padding: 20px 0;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(220, 53, 69, 0.8);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.8;
+        transition: all 0.3s;
+    }
+    
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(220, 53, 69, 1);
+        opacity: 1;
+    }
+    
+    .carousel-control-prev {
+        left: -30px;
+    }
+    
+    .carousel-control-next {
+        right: -30px;
+    }
+    
+    .carousel-indicators {
+        bottom: -40px;
+    }
+    
+    .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-color: #dc3545;
+        opacity: 0.5;
+        transition: all 0.3s;
+    }
+    
+    .carousel-indicators button.active {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    
+    /* Анимация появления слайдов */
+    .carousel-item {
+        transition: transform 0.8s ease-in-out;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .carousel-control-prev {
+            left: 10px;
+        }
+        
+        .carousel-control-next {
+            right: 10px;
+        }
+        
+        .promo-card {
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        .promo-img {
+            height: 200px;
+            width: 100%;
+        }
+        
+        .carousel-indicators {
+            bottom: -30px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .promo-card {
+            margin: 0 10px;
+        }
+    }
+</style>
+
+<script>
+    // Инициализация карусели с автопрокруткой
+    document.addEventListener('DOMContentLoaded', function() {
+        const promotionsCarousel = new bootstrap.Carousel(document.getElementById('promotionsCarousel'), {
+            interval: 5000, // Смена каждые 5 секунд
+            wrap: true,
+            touch: true,
+            pause: 'hover' // Пауза при наведении
+        });
+    });
+</script>
+
 
     <!-- Категории товаров -->
     <section id="categories" class="py-5">
@@ -234,107 +791,81 @@
             
             <div class="row g-4">
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-gear-wide-connected"></i>
-                            </div>
-                            <h5 class="card-title">Двигатель</h5>
-                            <p class="card-text text-muted">Поршни, коленвалы, ГБЦ и другие детали</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/engine.jpg');">
+                        <div class="category-info">
+                            <h5>Двигатель</h5>
+                            <p>Поршни, коленвалы, ГБЦ</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-gear"></i>
-                            </div>
-                            <h5 class="card-title">Трансмиссия</h5>
-                            <p class="card-text text-muted">КПП, сцепление, приводные валы</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/transmission.jpg');">
+                        <div class="category-info">
+                            <h5>Трансмиссия</h5>
+                            <p>Сальники, ремкомплекты, прокладки</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-speedometer2"></i>
-                            </div>
-                            <h5 class="card-title">Тормозная система</h5>
-                            <p class="card-text text-muted">Колодки, диски, суппорта, тормозные жидкости</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/brakes.jpg');">
+                        <div class="category-info">
+                            <h5>Тормозная система</h5>
+                            <p>Колодки, тормозные диски, суппорта</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-lightning-charge"></i>
-                            </div>
-                            <h5 class="card-title">Электрика</h5>
-                            <p class="card-text text-muted">Аккумуляторы, генераторы, стартеры, провода</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/electric.jpg');">
+                        <div class="category-info">
+                            <h5>Электрика</h5>
+                            <p>Генераторы, свечи, аккумуляторы</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-snow"></i>
-                            </div>
-                            <h5 class="card-title">Система охлаждения</h5>
-                            <p class="card-text text-muted">Радиаторы, помпы, термостаты, патрубки</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/cooling-system.jpg');">
+                        <div class="category-info">
+                            <h5>Система охлаждения</h5>
+                            <p>Радиаторы, патрубки, термостаты</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-droplet-fill"></i>
-                            </div>
-                            <h5 class="card-title">Фильтры и масла</h5>
-                            <p class="card-text text-muted">Моторные и трансмиссионные масла, фильтры</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/oil-and-filters.jpg');">
+                        <div class="category-info">
+                            <h5>Масла и фильтры</h5>
+                            <p>Воздушные, масляные и топливные фильтры, масла моторные и трансмиссионные</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
-                                    <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
-                                </svg>
-                            </div>
-                            <h5 class="card-title">Кузовные детали</h5>
-                            <p class="card-text text-muted">Фары, бампера, зеркала, стекла, крылья</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/suspension.jpeg');">
+                        <div class="category-info">
+                            <h5>Подвеска</h5>
+                            <p>Амортизаторы, пружины, сайлентблоки</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-3">
-                    <div class="category-card card text-center">
-                        <div class="card-body p-4">
-                            <div class="feature-icon">
-                                <i class="bi bi-wrench"></i>
-                            </div>
-                            <h5 class="card-title">Инструменты</h5>
-                            <p class="card-text text-muted">Наборы инструментов, домкраты, съемники</p>
-                            <a href="#" class="btn btn-outline-primary">Смотреть</a>
+                    <div class="category-card" style="background-image: url('img/categories/body.jpg');">
+                        <div class="category-info">
+                            <h5>Кузовные детали</h5>
+                            <p>Фары, крылья, бамперы</p>
+                            <a href="all-parts.html">Смотреть →</a>
                         </div>
                     </div>
                 </div>
@@ -342,129 +873,418 @@
         </div>
     </section>
 
-    <!-- Популярные товары -->
-    <section id="products" class="py-5 bg-light">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col">
-                    <h2 class="text-center fw-bold">Популярные товары</h2>
-                    <p class="text-center text-muted">Самые востребованные автозапчасти</p>
-                </div>
+
+<!-- Секция товаров с каруселью -->
+<section id="products" class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="text-center fw-bold">Популярные товары</h2>
+                <p class="text-center text-muted">Самые востребованные автозапчасти</p>
             </div>
-            
-            <div class="row g-4">
-                <!-- Товар 1 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100">
-                        <div class="position-relative">
-                            <span class="badge bg-danger badge-discount">-15%</span>
-                            <img src="img/kolodki-brembo.jpg" class="card-img-top product-img" alt="Тормозные колодки">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Тормозные колодки Brembo</h5>
-                            <p class="card-text text-muted small">Передние, для Volkswagen Passat B7, Audi A4</p>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="price">4 250 ₽</span>
-                                        <span class="old-price ms-2">5 000 ₽</span>
-                                        <div class="discount small">Экономия 750 ₽</div>
-                                    </div>
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary"><i class="bi bi-cart-plus me-2"></i>В корзину</button>
+        </div>
+        
+        <!-- Контейнер для карусели -->
+        <div id="products-carousel-container" class="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка товаров...</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция отзывов -->
+<section id="reviews" class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center fw-bold mb-3">Отзывы наших клиентов</h2>
+                <p class="text-center text-muted">Что говорят покупатели о нашем магазине</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Отзыв 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="review-avatar me-3">
+                                <img src="img/people/0x0_none.jpg" 
+                                     class="rounded-circle" 
+                                     alt="Александр Петров"
+                                     width="60" 
+                                     height="60">
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Александр Петров</h5>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="text-muted ms-2">5.0</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Товар 2 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100">
-                        <img src="img/mann-filter.jpg" class="card-img-top product-img" alt="Масляный фильтр">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Масляный фильтр Mann</h5>
-                            <p class="card-text text-muted small">Для BMW 3 серии (F30), Mercedes C-class (W205)</p>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="price">850 ₽</span>
-                                    </div>
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary"><i class="bi bi-cart-plus me-2"></i>В корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Товар 3 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100">
-                        <div class="position-relative">
-                            <span class="badge bg-danger badge-discount">Хит</span>
-                            <img src="img/varta-akb.jpg" class="card-img-top product-img" alt="Аккумулятор">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Аккумулятор Varta Blue Dynamic</h5>
-                            <p class="card-text text-muted small">12V 74Ah 680A, тип клемм 1 (прямые)</p>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="price">7 890 ₽</span>
-                                        <span class="old-price ms-2">8 500 ₽</span>
-                                    </div>
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary"><i class="bi bi-cart-plus me-2"></i>В корзину</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Товар 4 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100">
-                        <img src="img/ngk-svechi.jpg" class="card-img-top product-img" alt="Свечи зажигания">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Свечи зажигания NGK</h5>
-                            <p class="card-text text-muted small">Иридиевые, для Toyota Camry, Honda Accord</p>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="price">650 ₽ / шт</span>
-                                    </div>
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-primary"><i class="bi bi-cart-plus me-2"></i>В корзину</button>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        <p class="card-text">
+                            "Искал комплект ГРМ Contitech для Ford Focus 3. Во-первых, цены адекватные - не самые дешёвые, но и не задраные как у 'официалов'. Во-вторых, ассортимент: можно выбрать от бюджетного варианта до премиума.
+
+ Распаковываю - всё в фирменных упаковках, бирки, даты производства свежие. Пробег уже 15 тыс. км - никаких проблем."
+                        </p>
+                        
+                        
                     </div>
                 </div>
             </div>
             
-            <div class="row mt-4">
-                <div class="col text-center">
-                    <a href="#" class="btn btn-outline-primary btn-lg">Смотреть все товары</a>
+            <!-- Отзыв 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="review-avatar me-3">
+                                <img src="img/people/arac-paylasimi-is-modelleri-nedir-01.jpg" 
+                                     class="rounded-circle" 
+                                     alt="Марина Смирнова"
+                                     width="60" 
+                                     height="60">
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Михаил </h5>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="text-muted ms-2">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text">
+                            "Заказал колодки Brembo, привезли на следующий день. Распаковал - качество видно сразу, упакованы в фирменную коробку, есть сертификат. Поставил сам в гараже - всё идеально подошло. Теперь все запчасти только здесь беру. Спасибо менеджеру Евгению за грамотную консультацию!"
+                        </p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Отзыв 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="review-avatar me-3">
+                                <img src="img/people/XXL.jpg" 
+                                     class="rounded-circle" 
+                                     alt="Дмитрий Иванов"
+                                     width="60" 
+                                     height="60">
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Дмитрий Иванов</h5>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="text-muted ms-2">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text">
+                            "Работаю менеджером по подбору запчастей в небольшом автосервисе и не однократно заказывал у этих ребят. Широкий ассортимент, всегда в наличии нужные позиции. 
+                            Одни из немногих, кто привозит оригинал, а не подделку! С менеджером Никитой всегда на связи, он консультирует и уведомляет о новых поставках."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Отзыв 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="review-avatar me-3">
+                                <img src="img/people/pretty-young-woman-driving-car-242208553.jpg" 
+                                     class="rounded-circle" 
+                                     alt="Ольга Козлова"
+                                     width="60" 
+                                     height="60">
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Ольга</h5>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="text-muted ms-2">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text">
+                            "Я не особо разбираюсь в машинах, но ездить люблю. А тут мой Hyundai начал странно шуметь - какой-то свист из под капота. Специалист Сергей
+                            понятно объяснил, что это приводной ремень, помог заказать новый от производителя Dayco. Запчасть пришла на следующий день!" 
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
+
+<style>
+    /* Стили для секции отзывов */
+    #reviews {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .review-card {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+    }
+    
+    .review-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .review-avatar img {
+        border: 3px solid #0d6efd;
+        object-fit: cover;
+    }
+    
+    .rating-stars {
+        color: #ffc107;
+        font-size: 1.1rem;
+    }
+    
+    .review-card .card-text {
+        color: #555;
+        line-height: 1.6;
+        font-style: italic;
+        position: relative;
+        padding-left: 15px;
+    }
+    
+    .review-card .card-text::before {
+        content: '"';
+        font-size: 2.5rem;
+        color: #0d6efd;
+        opacity: 0.3;
+        position: absolute;
+        left: -5px;
+        top: -15px;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    /* Анимация для появления карточек */
+    .review-card {
+        animation: fadeInUp 0.5s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    .review-card:nth-child(1) { animation-delay: 0.1s; }
+    .review-card:nth-child(2) { animation-delay: 0.2s; }
+    .review-card:nth-child(3) { animation-delay: 0.3s; }
+    .review-card:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .review-card {
+            margin-bottom: 20px;
+        }
+        
+        .review-avatar img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+</style>
+
+    <!-- Наши сотрудники -->
+<!-- Наши сотрудники -->
+<section id="team" class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-3">Наши сотрудники</h2>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <!-- Сотрудник 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="team-card card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="team-avatar mb-3 mx-auto">
+                            <img src="img/people/team-zhenya.jpg" 
+                                 class="rounded-circle" 
+                                 alt="Чмыхалов Евгений"
+                                 width="100" 
+                                 height="100">
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">Чмыхалов Евгений</h5>
+                        <p class="text-primary mb-3">Менеджер</p>
+                        <p class="card-text small">Занимается не только подбором запчастей, но и автомобилей. Выберет самый лучший и выгодный вариант.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1 mb-1">Skoda</span>
+                            <span class="badge bg-light text-dark me-1 mb-1">Daewoo</span>
+                            <span class="badge bg-light text-dark mb-1">Subaru</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 2 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="team-card card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="team-avatar mb-3 mx-auto">
+                            <img src="img/people/team-nikita.jpg" 
+                                 class="rounded-circle" 
+                                 alt="Каленюк Никита"
+                                 width="100" 
+                                 height="100">
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">Каленюк Никита</h5>
+                        <p class="text-primary mb-3">Старший менеджер</p>
+                        <p class="card-text small">Большой опыт работы в подборе запчастей для всех марок автомобилей. Всегда подберет лучший вариант по цене и качеству.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1 mb-1">Консультация</span>
+                            <span class="badge bg-light text-dark me-1 mb-1">Доставка</span>
+                            <span class="badge bg-light text-dark mb-1">Поддержка</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 3 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="team-card card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="team-avatar mb-3 mx-auto">
+                            <img src="img/people/team-serezha.jpg" 
+                                 class="rounded-circle" 
+                                 alt="Устименко Сергей"
+                                 width="100" 
+                                 height="100">
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">Устименко Сергей</h5>
+                        <p class="text-primary mb-3">Технический специалист</p>
+                        <p class="card-text small">Специализируется на подборе автозапчастей и ремонте японских автомобилей. Проконсультирует по техническим вопросам и обслуживании авто.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1 mb-1">Mitsubishi</span>
+                            <span class="badge bg-light text-dark me-1 mb-1">Toyota</span>
+                            <span class="badge bg-light text-dark mb-1">Honda</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .team-card {
+        transition: transform 0.3s;
+        border-radius: 10px;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .team-avatar img {
+        border: 3px solid #0d6efd;
+        object-fit: cover;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 15px;
+    }
+    
+    .card-text.small {
+        font-size: 0.9rem;
+        color: #666;
+    }
+</style>
+
+<style>
+    .team-card {
+        transition: transform 0.3s;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .team-photo {
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+</style>
 
     <!-- Преимущества -->
     <section class="features-section py-5">
         <div class="container">
+            <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-3">Почему стоит выбрать нас?</h2>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center mb-4">
                     <div class="feature-icon">
                         <i class="bi bi-truck"></i>
                     </div>
                     <h5>Быстрая доставка</h5>
-                    <p class="text-muted">Доставка по всей стране от 1 дня. Самовывоз из 150 пунктов выдачи.</p>
+                    <p class="text-muted">Доставка по всей республике от 1 дня. Самовывоз из 150 пунктов выдачи.</p>
                 </div>
                 
                 <div class="col-lg-3 col-md-6 text-center mb-4">
@@ -506,22 +1326,22 @@
             
             <div class="row align-items-center justify-content-center g-4">
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/bosch.png"  class="img-fluid car-brand-img" alt="Bosch">
+                    <img src="img/logos/bosch.png"  class="img-fluid car-brand-img" alt="Bosch">
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/brembo-logo.png" class="img-fluid car-brand-img" alt="Brembo">
+                    <img src="img/logos/brembo-logo.png" class="img-fluid car-brand-img" alt="Brembo" trans>
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/ngk-logo.png" class="img-fluid car-brand-img" alt="NGK">
+                    <img src="img/logos/ngk-logo.png" class="img-fluid car-brand-img" alt="NGK">
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/mann-logo.png" class="img-fluid car-brand-img" alt="Mann Filter">
+                    <img src="img/logos/mann-logo.png" class="img-fluid car-brand-img" alt="Mann Filter">
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/varta-logo.png" class="img-fluid car-brand-img" alt="Varta">
+                    <img src="img/logos/varta-logo.png" class="img-fluid car-brand-img" alt="Varta">
                 </div>
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-                    <img src="img/castrol-logo.png" class="img-fluid car-brand-img" alt="Castrol">
+                    <img src="img/logos/castrol-logo.png" class="img-fluid car-brand-img" alt="Castrol">
                 </div>
             </div>
         </div>
