@@ -1,1 +1,1 @@
-thepartyneverends.github.io/kursovaya-autoparts
+https://thepartyneverends.github.io/kursovaya-autoparts
