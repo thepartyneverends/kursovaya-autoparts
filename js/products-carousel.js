@@ -2,7 +2,6 @@
 class CarouselProductService {
     constructor() {
         this.products = [];
-        this.cart = this.loadCart();
     }
 
     // Загрузка данных из JSON
@@ -58,47 +57,6 @@ class CarouselProductService {
     getProductById(id) {
         return this.products.find(product => product.id === parseInt(id));
     }
-
-    // Работа с корзиной
-    loadCart() {
-        const cartJson = localStorage.getItem('autoparts_cart');
-        return cartJson ? JSON.parse(cartJson) : [];
-    }
-
-    saveCart() {
-        localStorage.setItem('autoparts_cart', JSON.stringify(this.cart));
-    }
-
-    addToCart(productId, quantity = 1) {
-        const product = this.getProductById(productId);
-        if (!product) return false;
-
-        const existingItem = this.cart.find(item => item.id === productId);
-        
-        if (existingItem) {
-            existingItem.quantity += quantity;
-        } else {
-            this.cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: quantity
-            });
-        }
-        
-        this.saveCart();
-        this.updateCartCounter();
-        return true;
-    }
-
-    updateCartCounter() {
-        const cartCount = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-        const counterElement = document.querySelector('.cart-count');
-        if (counterElement) {
-            counterElement.textContent = cartCount;
-        }
-    }
 }
 
 // Класс для рендеринга карусели
@@ -121,7 +79,6 @@ class CarouselRenderer {
             <div class="col-md-6 col-lg-3">
                 <div class="product-card card h-100">
                     <div class="position-relative">
-                        ${product.badge ? `<span class="badge bg-danger badge-discount">${product.badge}</span>` : ''}
                         <img src="${product.image}" class="card-img-top product-img" alt="${product.name}" 
                              onerror="this.src='https://via.placeholder.com/300x200/6c757d/ffffff?text=Нет+изображения'">
                     </div>
@@ -233,31 +190,7 @@ class CarouselRenderer {
 
     // Прикрепление обработчиков событий
     attachEventListeners() {
-        // Обработчики для кнопок корзины
         setTimeout(() => {
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = e.currentTarget.getAttribute('data-product-id');
-                    const added = this.productService.addToCart(productId);
-                    
-                    if (added) {
-                        // Визуальная обратная связь
-                        const btn = e.currentTarget;
-                        const originalText = btn.innerHTML;
-                        btn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Добавлено';
-                        btn.classList.remove('btn-primary');
-                        btn.classList.add('btn-success');
-                        btn.disabled = true;
-                        
-                        setTimeout(() => {
-                            btn.innerHTML = originalText;
-                            btn.classList.remove('btn-success');
-                            btn.classList.add('btn-primary');
-                            btn.disabled = false;
-                        }, 1500);
-                    }
-                });
-            });
 
             // Пауза карусели при наведении
             const carousel = document.getElementById('productsCarousel');
